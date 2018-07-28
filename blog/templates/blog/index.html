@@ -2,27 +2,17 @@
     <head>
         <title> 테스트 블로그 </title>
     </head>
-    <body>
-        <h1> {{post.title}} </h1>
-            <time> {{post.modify_date}} </time>
+    <body>      
         <div>
-            {{post.content | linebreaksbr}}
+            {% for post in posts %}
+            <div>
+                <p> published : {{ post.published_date }}</p>
+                <p> 작성자 : {{post.author}} </p>
+                <h1><a href="">{{ post.title }} </a></h1>
+                <p>{{post.content | linebreaksbr}}</p>
+                <p> ----------------------------------------------------</p>
+            </div>
+            {% endfor %}    
         </div>
-        <div>
-            <p> published : 30.07.2018, 13:20</p>
-            <h2><a href="">My first post</a></h2>
-            <p> 테스트화면입니다. </p>
-        </div>
-        <p> --------------------------------------------------------</p>
-        <div>
-            <p> published : 30.07.2018, 15:50</p>
-            <h2><a href="">My second post</a></h2>
-            <p> 사랑을 했다 우리가 만나 지우지 못할 추억이 됐다<br>
-                볼만한 멜로드라마 괜찮은 결말 그거면 됐다 <br>
-                널 사랑했다 우리가 만든 love scenario <br>
-                이젠 조명이 꺼지고 마지막 페이지를 넘기면 조용히 막을 내리죠 </p>
-        </div>
-        
-        
     </body>
 </html>
