@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    # index.html을 출력
+    return render(request, 'blog/index.html', {})
+
