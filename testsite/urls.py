@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls), #admin을 제외한
-    url(r'^$', include('blog.urls')),  #모든 접속요청을 blog.urls로 넘김
+    url(r'', include('blog.urls')),  #모든 접속요청을 blog.urls로 넘김
 ]

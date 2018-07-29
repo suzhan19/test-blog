@@ -1,20 +1,16 @@
-<html>
-    <head>
-        <title> 테스트 블로그 </title>
-        <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    </head>
-    <body>      
-        <div>
-            {% for post in posts %}
-            <div>
-                <p> published : {{ post.published_date }}</p>
-                <p> 작성자 : {{post.author}} </p>
-                <h1><a href="">{{ post.title }} </a></h1>
-                <p>{{post.content | linebreaksbr}}</p>
-                <p> ----------------------------------------------------</p>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p> published: {{ post.published_date }}</p>
             </div>
-            {% endfor %}    
+            <div class="writer">
+                <p> 작성자 : {{post.author }} </p>
+            </div>
+            <h1><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h1>
+            <p>{{ post.content | linebreaksbr }}</p>
         </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
